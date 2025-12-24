@@ -1,20 +1,18 @@
 package stocks;
 
-import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) throws Exception {
-        Scanner s = new Scanner(System.in);
-        StockServer stock = new StockServer();
-        int value = stock.GetStock(Stock.MICROSOFT);
-        Runnable c1 = new Client("a", "b", stock);
-        Runnable c2 = new Client("c", "d", stock);
+    public static void main(String[] args) {
+        StockServer server = new StockServer();
 
-        System.out.println(c1);
-        Thread t1 =new Thread(c1);
-        Thread t2 =new Thread(c2);
-        t1.start();
-        t2.start();
-//    System.out.println(value);
+        StockReaderThread tami=new StockReaderThread("Tami Tan",Stock.MICROSOFT,server);
+        StockReaderThread tim=new StockReaderThread("Tim Seruli",Stock.APPLE,server);
+        StockReaderThread sima=new StockReaderThread("Sima Didas",Stock.GOOGLE,server);
+
+        StockUpdateThread updater=new StockUpdateThread(server);
+
+        tami.start();
+        tim.start();
+        sima.start();
+        updater.start();
     }
 }
