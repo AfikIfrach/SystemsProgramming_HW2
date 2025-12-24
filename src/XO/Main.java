@@ -1,4 +1,5 @@
 //Afik Ifrach - 314940081 , Shilat Maymon - 213249618
+//https://github.com/AfikIfrach/SystemsProgramming_HW2.git
 package XO;
 
 import java.util.Scanner;
