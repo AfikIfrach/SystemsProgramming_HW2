@@ -1,3 +1,4 @@
+//Afik Ifrach - 314940081 , Shilat Maymon - 213249618
 package Race;
 
 public class Racer implements Runnable {
@@ -16,7 +17,7 @@ public class Racer implements Runnable {
         this.track=track;
 
         synchronized (Racer.class){
-            this.id=globalId++;
+            id=globalId++;
         }
 
     }
